@@ -1,0 +1,256 @@
+/* styles.css */
+
+:root {
+  --bg: #f6f5f3;
+  --column-bg: #ffffff;
+  --border: #e1ddd6;
+  --text: #2a2622;
+  --accent: #b5562e;
+  --accent-soft: #f1e3da;
+  --danger: #b3392c;
+  --success: #3c7a5e;
+  --radius: 10px;
+}
+
+* { box-sizing: border-box; }
+
+.app-background {
+  min-height: 100vh;
+  background-image: url("./");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.kb-app {
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  padding: 24px;
+}
+
+.kb-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.kb-header h1 {
+  font-size: 1.5rem;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.kb-search {
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 0.9rem;
+  min-width: 240px;
+  background: #fff;
+}
+
+.kb-board {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  align-items: start;
+}
+
+.kb-column {
+  background: var(--column-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 200px;
+  transition: background 0.15s ease;
+}
+
+.kb-column-dragover {
+  background: var(--accent-soft);
+}
+
+.kb-column-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 8px;
+}
+
+.kb-column-header h2 {
+  font-size: 1rem;
+  margin: 0;
+}
+
+.kb-count-badge {
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 2px 9px;
+  border-radius: 999px;
+}
+
+.kb-column-body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-height: 60px;
+}
+
+.kb-empty {
+  color: #999;
+  font-size: 0.85rem;
+  text-align: center;
+  padding: 12px 0;
+  margin: 0;
+}
+
+.kb-card {
+  background: #fffdf9;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 10px;
+  cursor: grab;
+}
+
+.kb-card-title {
+  margin: 0 0 6px;
+  font-size: 0.9rem;
+  word-break: break-word;
+}
+
+.kb-card-input {
+  width: 100%;
+  font-size: 0.9rem;
+  padding: 4px 6px;
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  margin-bottom: 6px;
+}
+
+.kb-card-actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.kb-icon-btn {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  width: 26px;
+  height: 26px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  line-height: 1;
+}
+
+.kb-icon-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.kb-icon-btn-danger:hover {
+  background: #fbe9e6;
+  color: var(--danger);
+}
+
+.kb-confirm {
+  display: flex;
+  gap: 4px;
+}
+
+.kb-confirm-yes,
+.kb-confirm-no {
+  font-size: 0.75rem;
+  padding: 4px 8px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  cursor: pointer;
+}
+
+.kb-confirm-yes {
+  background: var(--danger);
+  color: #fff;
+  border-color: var(--danger);
+}
+
+.kb-add-btn {
+  background: none;
+  border: 1px dashed var(--border);
+  border-radius: 8px;
+  padding: 8px;
+  font-size: 0.85rem;
+  color: var(--accent);
+  cursor: pointer;
+}
+
+.kb-add-form {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.kb-add-form input {
+  padding: 6px 8px;
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  font-size: 0.85rem;
+}
+
+.kb-add-form-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.kb-add-form-actions button {
+  font-size: 0.8rem;
+  padding: 4px 10px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  cursor: pointer;
+  background: #fff;
+}
+
+.kb-toast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: var(--danger);
+  color: #fff;
+  padding: 12px 16px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.85rem;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+.kb-toast-success {
+  background: var(--success);
+}
+
+.kb-toast-close {
+  background: none;
+  border: none;
+  color: inherit;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+@media (max-width: 800px) {
+  .kb-board {
+    grid-template-columns: 1fr;
+  }
+}
